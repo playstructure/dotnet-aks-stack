@@ -36,6 +36,8 @@
     first-build:
       needs: stack-initialization
       uses: playstructure/workflows/.github/workflows/docker_build_publish.yml@main
+      with:
+        checkout_main: true # Needed to pull changes we just pushed
       secrets:
         azure_client_id: ${{ secrets.AZURE_CLIENT_ID }}
         azure_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
