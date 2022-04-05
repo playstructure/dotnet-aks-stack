@@ -1,0 +1,40 @@
+version: 0.1.0   
+
+name: Create a new .NET app in AKS
+description: Create a new .NET app in AKS
+
+branding:
+ icon: 'cloud'
+ color: 'blue'
+
+inputs:
+  - name: test
+    description: test input
+    is-secret: true
+    required: true
+
+configs:
+  repo-metadata:
+    parameters:
+      description: '.NET app in AKS'
+      secrets: 
+        - name: test
+          value: ${{inputs.test}}
+      topics:
+      - dotnet
+      - aks
+
+  # branches:
+  #   - name: main
+  #     parameters:
+  #       enforce-admins: true
+
+  environments:
+    - name: production
+      parameters:
+        protected-branches: false
+        allowed-branch-rules:
+          - main
+          
+init:
+  uses: "stack-init.yaml"
