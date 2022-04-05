@@ -8,18 +8,17 @@ branding:
  color: 'blue'
 
 inputs:
-  - name: test
-    description: test input
-    is-secret: true
-    required: true
+  - name: OIDC Instructions
+    description: |
+      IMPORTANT: Before proceeding, you must add OIDC registrations matching `repo:owner/name:ref:refs/heads/main` and `repo:owner/repo:environment:production` <script>alert('test')</script>
+    is-secret: false
+    default: (ignore, informational only)
+    required: false
 
 configs:
   repo-metadata:
     parameters:
       description: '.NET app in AKS'
-      secrets: 
-        - name: test
-          value: ${{inputs.test}}
       topics:
       - dotnet
       - aks
