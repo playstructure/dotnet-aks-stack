@@ -23,6 +23,10 @@
           run: |
             dotnet new webapi --force
 
+        - name: Perform name replacements
+          run: |
+            sed -i 's/sample-dotnet/$GITHUB_REPOSITORY/g' Dockerfile
+
         - name: Commit generated code and initialize workflows
           run: |
             git add .
