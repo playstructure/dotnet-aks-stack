@@ -10,7 +10,7 @@ branding:
 inputs:
   - name: OIDC Instructions
     description: |
-      IMPORTANT: Before proceeding, you must add OIDC registrations matching `repo:owner/name:ref:refs/heads/main` and `repo:owner/repo:environment:production` <script>alert('test')</script>
+      IMPORTANT: Before proceeding, you must add OIDC registrations matching `repo:owner/name:ref:refs/heads/main` and `repo:owner/repo:environment:production`
     is-secret: false
     default: (ignore, informational only)
     required: false

@@ -7,7 +7,7 @@
     stack-initialization:
       runs-on: ubuntu-latest
       steps:
-        - run: echo "Creating nextjs sample application and deploying to aws s3"
+
         - name: checkout
           uses: actions/checkout@v2
           with:
@@ -30,6 +30,7 @@
             git push
 
     first-build:
+      needs: stack-initialization
       uses: playstructure/workflows/.github/workflows/docker_build_publish.yml@main
       secrets:
         azure_client_id: ${{ secrets.AZURE_CLIENT_ID }}
