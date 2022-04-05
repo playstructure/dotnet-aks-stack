@@ -21,7 +21,7 @@
             
         - name: Generate code
           run: |
-            dotnet new webapi
+            dotnet new webapi --force
 
         - name: Commit generated code and initialize workflows
           run: |
