@@ -36,7 +36,7 @@
             git push
         
         - name: Record SHA for initial build/deploy
-          run: echo '::set-output name=generated_code_sha::$(git rev-parse HEAD)'
+          run: echo "::set-output name=generated_code_sha::$(git rev-parse HEAD)"
           id: get_generated_code_sha
 
     first-build:
