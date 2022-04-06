@@ -28,6 +28,8 @@
         - name: Perform name replacements
           run: |
             sed -i 's/sample-dotnet/$GITHUB_REPOSITORY/g' Dockerfile
+            find .playstructure -type f -exec sed -i 's/sample-dotnet/$GITHUB_REPOSITORY/g' {} +
+            find .playstructure -type d -exec rename 's/sample-dotnet/$GITHUB_REPOSITORY/' {} ";"
 
         - name: Commit generated code and initialize workflows
           run: |
