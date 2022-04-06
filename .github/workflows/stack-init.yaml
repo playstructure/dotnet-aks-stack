@@ -1,4 +1,4 @@
-  name: Create a new .NET app in AKS
+  name: Initialize Stack
 
   on:
     workflow_dispatch:
@@ -27,14 +27,14 @@
 
         - name: Perform name replacements in code
           run: |
-            sed -i 's/sample-dotnet/$GITHUB_REPOSITORY/g' Dockerfile
+            sed -i 's/sample-dotnet/${GITHUB_REPOSITORY#*/}/g' Dockerfile
 
         - name: Perform name replacements in k8s manifest contents and filenames
           working-directory: .playstructure/kubernetes
           run: |
-            find . -type f -exec sed -i 's/sample-dotnet/$GITHUB_REPOSITORY/g' {} +
-            mv common/deployment/sample-dotnet-api-server.yml common/deployment/$GITHUB_REPOSITORY-api-server.yml
-            mv common/ingress/sample-dotnet-ingress.yml common/deployment/$GITHUB_REPOSITORY-ingress.yml
+            find . -type f -exec sed -i 's/sample-dotnet/${GITHUB_REPOSITORY#*/}/g' {} +
+            mv ./common/deployment/sample-dotnet-api-server.yml ./common/deployment/${GITHUB_REPOSITORY#*/}-api-server.yml
+            mv ./common/ingress/sample-dotnet-ingress.yml ./common/deployment/${GITHUB_REPOSITORY#*/}-ingress.yml
 
         - name: Commit generated code and initialize workflows
           run: |
