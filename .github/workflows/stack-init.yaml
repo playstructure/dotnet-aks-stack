@@ -58,7 +58,7 @@
         azure_registry: ${{ secrets.AZURE_REGISTRY }}
 
     first-deploy:
-      needs: [ first-build, stack-initialization ]
+      needs: [ stack-initialization, first-build ]
       uses: playstructure/workflows/.github/workflows/deploy.yml@main
       with:
         cluster_resource_group: zarenner-stamp1
