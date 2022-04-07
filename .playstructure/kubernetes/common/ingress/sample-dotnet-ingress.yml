@@ -7,10 +7,10 @@ metadata:
 spec:
   ingressClassName: sample-dotnet
   rules:
-  - http:
+  - host: sample-dotnet.playstructure.dev
+    http:
       paths:
-      - path: /app
-        pathType: Prefix
+      - path: /
         backend:
           service:
             name: sample-dotnet

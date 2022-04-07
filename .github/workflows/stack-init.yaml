@@ -34,6 +34,7 @@
           run: |
             find . -type f -exec sed -i "s/sample-dotnet/${GITHUB_REPOSITORY#*/}/g" {} +
             mv ./common/deployment/sample-dotnet-api-server.yml ./common/deployment/${GITHUB_REPOSITORY#*/}-api-server.yml
+            mv ./common/service/sample-dotnet-service.yml ./common/service/${GITHUB_REPOSITORY#*/}-service.yml
             mv ./common/ingress/sample-dotnet-ingress.yml ./common/ingress/${GITHUB_REPOSITORY#*/}-ingress.yml
 
         - name: Commit generated code and initialize workflows

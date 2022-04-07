@@ -3,4 +3,6 @@ kind: Kustomization
 
 resources:
   - deployment/sample-dotnet-api-server.yml
+  - service/sample-dotnet-service.yml
   - ingress/sample-dotnet-ingress.yml
+  
